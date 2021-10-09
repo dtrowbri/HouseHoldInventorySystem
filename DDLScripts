@@ -25,6 +25,7 @@ CREATE TABLE `householdinventory`.`households` (
 CREATE TABLE `householdinventory`.`inventory` (
   `Id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(255) NOT NULL,
+  `Description` VARCHAR(255) NOT NULL,
   `Quantity` INT UNSIGNED NOT NULL,
   `HouseHoldId` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`Id`),
