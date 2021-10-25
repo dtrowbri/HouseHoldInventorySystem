@@ -6,6 +6,7 @@ class User {
     private $Email;
     private $FirstName;
     private $LastName;
+    private $password;
     
     function __construct(?string $Email, ?string $FirstName, ?string $LastName){
         $this->setEmail($Email);
@@ -43,6 +44,14 @@ class User {
     
     function setLastName(?string $LastName){
         $this->LastName;
+    }
+    
+    function getPassword(){
+        return $this->password;
+    }
+    
+    function setPassword(?string $Password){
+        $this->password = $Password;
     }
 }
 
