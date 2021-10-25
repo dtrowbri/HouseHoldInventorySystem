@@ -1,5 +1,5 @@
 <?php
-
+require_once 'business/models/household.php';
 class HouseHoldService {
     
     

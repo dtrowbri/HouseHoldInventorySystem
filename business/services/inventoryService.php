@@ -1,5 +1,5 @@
 <?php
-
+require_once 'business/models/inventoryitem.php';
 class InventoryService {
     
     function __construct(){
