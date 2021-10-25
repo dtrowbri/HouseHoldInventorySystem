@@ -9,8 +9,8 @@ class HouseHold{
     
     function __construct(?string $Name, ?string $Address, ?int $UserId){
         $this->setName($Name);
-        $this->Address($Address);
-        $this->UserId($UserId);
+        $this->setAddress($Address);
+        $this->setUserId($UserId);
     }
     
     function getId(){
