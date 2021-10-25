@@ -10,8 +10,8 @@ class User {
     
     function __construct(?string $Email, ?string $FirstName, ?string $LastName){
         $this->setEmail($Email);
-        $this->FirstName($FirstName);
-        $this->LastName($LastName);
+        $this->setFirstName($FirstName);
+        $this->setLastName($LastName);
     }
     
     function getId(){
