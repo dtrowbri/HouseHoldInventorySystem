@@ -43,7 +43,7 @@ class User {
     }
     
     function setLastName(?string $LastName){
-        $this->LastName;
+        $this->LastName = $LastName;
     }
     
     function getPassword(){
