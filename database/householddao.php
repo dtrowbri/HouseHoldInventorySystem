@@ -8,7 +8,7 @@ class HouseHoldDAO {
     function addHouseHold(?HouseHold $HouseHold, $conn){
         $query = "insert into households (Id, Name, Address, UserId) values (null, ?, ?, ?)";
         $stmt = $conn->prepare($query);
-
+        
         $stmt->bindParam(1, $HouseHold->getName(), PDO::PARAM_STR);
         $stmt->bindParam(2, $HouseHold->getAddress(), PDO::PARAM_STR);
         $stmt->bindParam(3, $HouseHold->getUserId(), PDO::PARAM_INT);

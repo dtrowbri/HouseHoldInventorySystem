@@ -2,28 +2,31 @@
 
 class HouseHoldService {
     
+    private $database;
     
     function __construct(){
-        
+        $this->database = new Database();
     }
     
     function addHouseHold(?HouseHold $HouseHold){
-        //This code is test code for the front-end user. Real code will be added later
-        if($HouseHold->getAddress() != null && $HouseHold->getName() != null && $HouseHold->getUserId() != null){
-            return true;
-        } else {
-            return false;
-        }
+        $conn = $this->database->getConnection();
+        $dao = new HouseHoldDAO();
+        $results = $dao->addHouseHold($HouseHold, $conn);
+        return $results;
     }
     
     function deleteHouseHold(?int $HouseHoldId){
-        //This code is test code for the front-end user. Real code will be added later
-        return true;
+        $conn = $this->database->getConnection();
+        $dao = new HouseHoldDAO();
+        $results = $dao->deleteHouseHold($HouseHoldId, $conn);
+        return $results;
     }
     
     function updateHouseHold(?HouseHold $HouseHold){
-        //This code is test code for the front-end user. Real code will be added later
-        return true;
+        $conn = $this->database->getConnection();
+        $dao = new HouseHoldDAO();
+        $results = $dao->updateHouseHold($HouseHold, $conn);
+        return $results;
     }
     
     function getHouseHolds(){
@@ -40,5 +43,6 @@ class HouseHoldService {
         return $HouseHolds;
     }
 }
+
 
 ?>
