@@ -23,18 +23,18 @@ if( $results == NULL ) {
     for($x=0; $x < count($results); $x++) {
         echo "
                 <tr>
-                    <td class='text-center'>" . $results[$x][Id] . "</td>
-                    <td>" . $results[$x][Name] . "</td>
-                    <td> " . $results[$x][Address] . "</td>
-                    <td>" . $results[$x][UserId] . "</td>
+                    <td class='text-center'>" . $results[$x]->getId() . "</td>
+                    <td>" . $results[$x]->getName() . "</td>
+                    <td> " . $results[$x]->getAddress() . "</td>
+                    <td>" . $results[$x]->getUserId() . "</td>
                     <td class='text-center'>
                         <form class='d-flex' style='margin-bottom:0' action='HHEdit.php' method='POST'>
-                            <button class='btn' name='HHEdit' id='HHEdit' value='" . $results[$x][Id] . "'>Edit</button>
+                            <button class='btn' name='HHEdit' id='HHEdit' value='" . $results[$x]->getId() . "'>Edit</button>
                         </form>
                     </td>
                     <td class='text-center'>
                         <form class='d-flex' style='margin-bottom:0' action='HHHandler.php' method='POST'>
-                            <button class='btn' name='HHDel' id='HHDel' onclick='return ConfirmDelete()' value='" . $results[$x][Id] . "'>Del</button>
+                            <button class='btn' name='HHDel' id='HHDel' onclick='return ConfirmDelete()' value='" . $results[$x]->getId() . "'>Del</button>
                         </form>
                     </td>
                 </tr>

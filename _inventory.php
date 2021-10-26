@@ -23,18 +23,18 @@ if( $results == NULL ) {
     for($x=0; $x < count($results); $x++) {
         echo "
                 <tr>
-                    <td class='text-center'>" . $results[$x][Id] . "</td>
-                    <td>" . $results[$x][Name] . "</td>
-                    <td> " . $results[$x][Description] . "</td>
-                    <td>" . $results[$x][Quantity] . "</td>
+                    <td class='text-center'>" . $results[$x]->getId() . "</td>
+                    <td>" . $results[$x]->getName(). "</td>
+                    <td> " . $results[$x]->getDescription() . "</td>
+                    <td>" . $results[$x]->getQuantity() . "</td>
                     <td class='text-center'>
                         <form class='d-flex' style='margin-bottom:0' action='ItemEdit.php' method='POST'>
-                            <button class='btn' name='ItemEdit' id='ItemEdit' value='" . $results[$x][Id] . "'>Edit</button>
+                            <button class='btn' name='ItemEdit' id='ItemEdit' value='" . $results[$x]->getId() . "'>Edit</button>
                         </form>
                     </td>
                     <td class='text-center'>
                         <form class='d-flex' style='margin-bottom:0' action='ItemDel.php' method='POST'>
-                            <button class='btn' name='ItemDel' id='ItemDel' onclick='return ConfirmDelete()' value='" . $results[$x][Id] . "'>Del</button>
+                            <button class='btn' name='ItemDel' id='ItemDel' onclick='return ConfirmDelete()' value='" . $results[$x]->getId() . "'>Del</button>
                         </form>
                     </td>
                 </tr>
