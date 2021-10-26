@@ -15,21 +15,45 @@ class HouseHoldService {
     function addHouseHold(?HouseHold $HouseHold){
         $conn = $this->database->getConnection();
         $dao = new HouseHoldDAO();
+        $conn->beginTransaction();
         $results = $dao->addHouseHold($HouseHold, $conn);
+        
+        if($results){
+            $conn->commit();
+        } else {
+            $conn->rollBack();
+        }
+        
         return $results;
     }
     
     function deleteHouseHold(?int $HouseHoldId){
         $conn = $this->database->getConnection();
         $dao = new HouseHoldDAO();
+        $conn->beginTransaction();
         $results = $dao->deleteHouseHold($HouseHoldId, $conn);
+        
+        if($results){
+            $conn->commit();
+        } else {
+            $conn->rollBack();
+        }
+        
         return $results;
     }
     
     function updateHouseHold(?HouseHold $HouseHold){
         $conn = $this->database->getConnection();
         $dao = new HouseHoldDAO();
+        $conn->beginTransaction();
         $results = $dao->updateHouseHold($HouseHold, $conn);
+        
+        if($results){
+            $conn->commit();
+        } else {
+            $conn->rollBack();
+        }
+        
         return $results;
     }
     
