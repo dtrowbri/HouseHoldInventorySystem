@@ -1,5 +1,9 @@
 <?php
 
+//require_once '../../database/database.php';
+//require_once '../../database/householddao.php';
+//require_once '../models/household.php';
+
 class HouseHoldService {
     
     private $database;
@@ -29,20 +33,12 @@ class HouseHoldService {
         return $results;
     }
     
-    function getHouseHolds(){
-        //This code is test code for the front-end user. Real code will be added later
-        $HouseHolds = array();
-        $HouseHold1 = new HouseHold("HouseHold1", "1234 Elm St Phoenix Az", 1);
-        $HouseHold1->setId(1);
-        $HouseHold2 = new HouseHold("HouseHold2", "5678 Professor Oak St Pallet Town AZ", 1);
-        $HouseHold2->setId(2);
-        
-        array_push($HouseHolds, $HouseHold1);
-        array_push($HouseHolds, $HouseHold2);
-        
-        return $HouseHolds;
+    function getHouseHolds(?int $UserId){
+        $conn = $this->database->getConnection();
+        $dao = new HouseHoldDAO();
+        $results = $dao->getHouseHolds($UserId, $conn);
+        return $results;
     }
 }
-
 
 ?>
