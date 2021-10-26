@@ -3,6 +3,7 @@
 //require_once '../../database/database.php';
 //require_once '../../database/householddao.php';
 //require_once '../models/household.php';
+//require_once './inventoryService.php';
 
 class HouseHoldService {
     
@@ -44,8 +45,10 @@ class HouseHoldService {
     
     function updateHouseHold(?HouseHold $HouseHold){
         $conn = $this->database->getConnection();
+        
         $dao = new HouseHoldDAO();
         $conn->beginTransaction();
+        
         $results = $dao->updateHouseHold($HouseHold, $conn);
         
         if($results){
