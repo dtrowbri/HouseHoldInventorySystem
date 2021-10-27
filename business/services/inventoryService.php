@@ -1,9 +1,7 @@
 <?php
-
-
-//require_once '../../database/database.php';
-//require_once '../../database/inventoryitemdao.php';
-//require_once '../models/inventoryitem.php';
+require_once 'database/database.php';
+require_once 'database/inventoryitemdao.php';
+require_once 'business/models/inventoryitem.php';
 
 class InventoryService {
     
@@ -19,7 +17,6 @@ class InventoryService {
         
         $conn->beginTransaction();
         $results = $dao->addInventoryItem($InventoryItem, $conn);
-        
         if($results){
             $conn->commit();
         } else {

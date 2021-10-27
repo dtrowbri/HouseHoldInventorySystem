@@ -1,10 +1,7 @@
 <?php
-
-
-//require_once '../../database/database.php';
-//require_once '../../database/householddao.php';
-//require_once '../models/household.php';
-//require_once './inventoryService.php';
+require_once 'database/database.php';
+require_once 'business/models/household.php';
+require_once 'database/householddao.php';
 
 class HouseHoldService {
     

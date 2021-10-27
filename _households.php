@@ -13,7 +13,7 @@ if( $results == NULL ) {
                     <th class='text-center' scope='col'> Household ID </th>
                     <th scope='col'> Name </th>
                     <th scope='col'> Address </th>
-                    <th scope='col'> User ID </th>
+                    <th class='text-center' scope='col'></th>
                     <th class='text-center' scope='col'></th>
                     <th class='text-center' scope='col'></th>
                 </tr>
@@ -26,15 +26,19 @@ if( $results == NULL ) {
                     <td class='text-center'>" . $results[$x]->getId() . "</td>
                     <td>" . $results[$x]->getName() . "</td>
                     <td> " . $results[$x]->getAddress() . "</td>
-                    <td>" . $results[$x]->getUserId() . "</td>
                     <td class='text-center'>
-                        <form class='d-flex' style='margin-bottom:0' action='HHEdit.php' method='POST'>
-                            <button class='btn' name='HHEdit' id='HHEdit' value='" . $results[$x]->getId() . "'>Edit</button>
+                        <form class='d-flex' style='margin-bottom:0' action='HHHandler.php' method='POST'>
+                            <button class='btn' name='HHDel' id='HHDel' onclick='return ConfirmDelete()' value='" . $results[$x]->getId() . "'>Del</button>
                         </form>
                     </td>
                     <td class='text-center'>
                         <form class='d-flex' style='margin-bottom:0' action='HHHandler.php' method='POST'>
-                            <button class='btn' name='HHDel' id='HHDel' onclick='return ConfirmDelete()' value='" . $results[$x]->getId() . "'>Del</button>
+                            <button class='btn' name='HHEdit' id='HHEdit' value='" . $results[$x]->getId() . "'>Edit</button>
+                        </form>
+                    </td>
+                    <td class='text-center'>
+                        <form class='d-flex' style='margin-bottom:0' action='inventory.php' method='POST'>
+                            <button class='btn' name='inventory' id='inventory' value='" . $results[$x]->getId() . "'>Enter</button>
                         </form>
                     </td>
                 </tr>

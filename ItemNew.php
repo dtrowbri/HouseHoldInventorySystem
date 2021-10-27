@@ -19,4 +19,6 @@ require_once 'header.php';
         location.href="inventory.php"
     };
 </script>
-<?php require_once 'footer.php'; ?>
+<?php 
+require_once 'footer.php';
+?>

@@ -1,7 +1,7 @@
 <?php
 
 //require_once './database.php';
-//require_once '../business/models/household.php';
+require_once 'business/models/household.php';
 
 class HouseHoldDAO {
     

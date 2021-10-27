@@ -2,7 +2,7 @@
 //echo "<pre>" . print_r($results, true) . "</pre>"; //for testing purposes.
 echo "
     <div class='container mt-3'>
-        <a class='btn btn-sm btn-outline-primary btn-block mb-2' type='button' href='ItemNew.php'>New Item</a>";
+        <a class='btn btn-sm btn-outline-primary btn-block mb-2' type='button' name='newItem' id='newItem' href='ItemNew.php'>New Item</a>";
 if( $results == NULL ) {
     echo "<div class='container mt-3'><h1>No results found.</h1></div>";
 } else {
@@ -28,12 +28,12 @@ if( $results == NULL ) {
                     <td> " . $results[$x]->getDescription() . "</td>
                     <td>" . $results[$x]->getQuantity() . "</td>
                     <td class='text-center'>
-                        <form class='d-flex' style='margin-bottom:0' action='ItemEdit.php' method='POST'>
+                        <form class='d-flex' style='margin-bottom:0' action='ItemHandler.php' method='POST'>
                             <button class='btn' name='ItemEdit' id='ItemEdit' value='" . $results[$x]->getId() . "'>Edit</button>
                         </form>
                     </td>
                     <td class='text-center'>
-                        <form class='d-flex' style='margin-bottom:0' action='ItemDel.php' method='POST'>
+                        <form class='d-flex' style='margin-bottom:0' action='ItemHandler.php' method='POST'>
                             <button class='btn' name='ItemDel' id='ItemDel' onclick='return ConfirmDelete()' value='" . $results[$x]->getId() . "'>Del</button>
                         </form>
                     </td>

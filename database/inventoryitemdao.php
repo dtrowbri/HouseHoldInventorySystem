@@ -1,7 +1,5 @@
 <?php
-
-//require_once './database.php';
-//require_once '../business/models/inventoryitem.php';
+require_once 'business/models/inventoryitem.php';
 
 class InventoryItemDAO {
     
@@ -14,7 +12,6 @@ class InventoryItemDAO {
         $stmt->bindParam(4, $InventoryItem->getDescription(), PDO::PARAM_STR);
         
         $stmt->execute();
-        
         if($stmt->rowCount() == 1){
             return true;
         } else {
@@ -65,11 +62,12 @@ class InventoryItemDAO {
             $results = $stmt->fetchAll();
             
             foreach($results as $result){
-                $InventoryItem = new InventoryItem($result["Name"], $result["Description"], $result["Quantity"], $result["HouseHoldId"]);
-                $InventoryItem->setId($result["Id"]);
+                $InventoryItem = new InventoryItem($result['Name'], $result['Description'], $result['Quantity'], $result['HouseHoldId']);
+                $InventoryItem->setId($result['Id']);
                 array_push($InventoryItems, $InventoryItem);
             }
-            return $results;
+            //echo '<pre>' . print_r($InventoryItems) . '<pre>';
+            return $InventoryItems;
         } else {
              return null;
         }

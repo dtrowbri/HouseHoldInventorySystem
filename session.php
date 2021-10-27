@@ -18,4 +18,14 @@
         session_start();
         return $_SESSION["USERNAME"];
     } 
+    
+    function saveHHSelection($id) {
+        session_start();
+        $_SESSION["HHID"] = $id;
+    }
+    
+    function getHHSelection() {
+        session_start();
+        return $_SESSION["HHID"];
+    }
 ?>
