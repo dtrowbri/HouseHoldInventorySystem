@@ -19,6 +19,25 @@ if(isset($_POST['addHousehold'])) {
     
 }
 
+if(isset($_POST['HHEdit'])) {
+    $input = $_POST['HHEdit']; //HHID
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    
+    $household = new HouseHold($name, $address, getUserId());
+    $household->setId($input);
+    
+    $db = new HouseHoldService();
+    $success = $db->updateHouseHold($household);
+    
+    if($success) {
+        $message = "<div class='alert-success'>Household successfully updated.</div>";
+    } else {
+        $message = "<div class='alert-danger'>Household edit failed.</div>";
+    }
+    include('households.php');
+}
+
 if(isset($_POST['HHDel'])) {
     $input = $_POST['HHDel'];
     //echo "inside HHHandler with HHDel" .$input ;

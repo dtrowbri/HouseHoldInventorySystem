@@ -28,7 +28,7 @@ if( $results == NULL ) {
                     <td> " . $results[$x]->getDescription() . "</td>
                     <td>" . $results[$x]->getQuantity() . "</td>
                     <td class='text-center'>
-                        <form class='d-flex' style='margin-bottom:0' action='ItemHandler.php' method='POST'>
+                        <form class='d-flex' style='margin-bottom:0' action='ItemEdit.php' method='POST'>
                             <button class='btn' name='ItemEdit' id='ItemEdit' value='" . $results[$x]->getId() . "'>Edit</button>
                         </form>
                     </td>

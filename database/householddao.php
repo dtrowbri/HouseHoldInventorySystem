@@ -40,9 +40,9 @@ class HouseHoldDAO {
         $query = "select Id, Name, Address, UserId from households where UserId = ?";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(1, $UserId, PDO::PARAM_INT);
-
+        
         $stmt->execute();
-
+        
         if($stmt->rowCount() > 0){
             $households = array();
             $results = $stmt->fetchAll();
@@ -52,8 +52,26 @@ class HouseHoldDAO {
                 $household->setId($result["Id"]);
                 array_push($households, $household);
             }
-          
-            return $households;            
+            
+            return $households;
+        } else {
+            return null;
+        }
+    }
+    
+    function getHouseHold(?int $HHID, $conn){
+        $query = "select Id, Name, Address, UserId from households where Id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(1, $HHID, PDO::PARAM_INT);
+        
+        $stmt->execute();
+        
+        if($stmt->rowCount() > 0){
+            $result = $stmt->fetchAll();
+            $household = new HouseHold($result[0]['Name'], $result[0]['Address'], $result[0]['UserId']);
+            $household->setId($result[0]['Id']);
+            //echo '<pre>' . print_r($household) . '</pre>';
+            return $household;
         } else {
             return null;
         }

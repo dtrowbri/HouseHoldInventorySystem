@@ -64,6 +64,13 @@ class HouseHoldService {
         $results = $dao->getHouseHolds($UserId, $conn);
         return $results;
     }
+    
+    function getHouseHold(?int $HHID){
+        $conn = $this->database->getConnection();
+        $dao = new HouseHoldDAO();
+        $results = $dao->getHouseHold($HHID, $conn);
+        return $results;
+    }
 }
 
 ?>

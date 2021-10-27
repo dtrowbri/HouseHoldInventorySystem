@@ -63,6 +63,13 @@ class InventoryService {
         $results = $dao->getInventoryItems($HouseHoldId, $conn);
         return $results;
     }
+    
+    function getHouseHoldInventoryItem(?int $ItemID){
+        $conn = $this->database->getConnection();
+        $dao = new InventoryItemDAO();
+        $results = $dao->getInventoryItem($ItemID, $conn);
+        return $results;
+    }
 }
 
 ?>

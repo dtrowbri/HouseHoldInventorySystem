@@ -69,8 +69,27 @@ class InventoryItemDAO {
             //echo '<pre>' . print_r($InventoryItems) . '<pre>';
             return $InventoryItems;
         } else {
-             return null;
+            return null;
         }
     }
-}
+    
+    function getInventoryItem(?int $ItemID, $conn){
+        $query = "select Id, Name, Quantity, HouseHoldId, Description from inventory where Id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(1, $ItemID, PDO::PARAM_INT);
+        
+        $stmt->execute();
+        
+        if($stmt->rowCount() > 0){
+            $result = $stmt->fetchAll();
+            $InventoryItem = new InventoryItem($result[0]['Name'], $result[0]['Description'], $result[0]['Quantity'], $result[0]['HouseHoldId']);
+            $InventoryItem->setId($result[0]['Id']);
+
+            //echo '<pre>' . print_r($InventoryItems) . '<pre>';
+            return $InventoryItem;
+        } else {
+            return null;
+        }
+    }
+} 
 ?>

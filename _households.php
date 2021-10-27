@@ -32,7 +32,7 @@ if( $results == NULL ) {
                         </form>
                     </td>
                     <td class='text-center'>
-                        <form class='d-flex' style='margin-bottom:0' action='HHHandler.php' method='POST'>
+                        <form class='d-flex' style='margin-bottom:0' action='HHEdit.php' method='POST'>
                             <button class='btn' name='HHEdit' id='HHEdit' value='" . $results[$x]->getId() . "'>Edit</button>
                         </form>
                     </td>

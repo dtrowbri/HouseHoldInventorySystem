@@ -1,5 +1,6 @@
 <?php
 require_once 'business/services/inventoryService.php';
+require_once 'business/models/inventoryitem.php';
 require_once 'session.php';
 
 if(isset($_POST['addItem'])) {
@@ -39,7 +40,24 @@ if(isset($_POST['ItemDel'])) {
 
 if(isset($_POST['ItemEdit'])) {
     $input = $_POST['ItemEdit'];
-    echo "inside ItemHandler with ItemEdit";
+    $name = $_POST['name'];
+    $desc = $_POST['desc'];
+    $quantity = $_POST['quantity'];
+    //echo "inside ItemHandler with ItemEdit";
+    $db = new InventoryService();
+    $item = new InventoryItem($name, $desc, $quantity, $hhid);
+
+    $item->setId($input);
+    
+    $success = $db->updateInventoryItem($item);
+    
+    if($success) {
+        $message = "<div class='alert-success'>Item successfully updated.</div>";
+    } else {
+        $message = "<div class='alert-danger'>Item edit failed.</div>";
+    }
+    include('inventory.php');
 }
+require_once 'footer.php'; 
 
 ?>
