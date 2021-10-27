@@ -4,16 +4,16 @@
 
 class AuthenticationDAO {
     
-    function authenticate(?int $UserId, ?string $Password, $conn){
-        $query = "select count(Id) as `count` from users where Id = ? and Password = ?";
+    function authenticate(?string $Email, ?string $Password, $conn){
+        $query = "select count(Email) as `count` from users where Email = ? and Password = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $UserId, PDO::PARAM_INT);
+        $stmt->bindParam(1, $Email, PDO::PARAM_STR);
         $stmt->bindParam(2, $Password, PDO::PARAM_STR);
 
         $stmt->execute();
         
         $result = $stmt->fetch();
-        
+        //echo '<br>$result[count]:' . $result['count'];
         if($result['count'] == 1){
             return true;
         } else {

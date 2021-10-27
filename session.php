@@ -1,9 +1,4 @@
 <?php
-    function saveUser($user) {
-        session_start();
-        $_SESSION["USER"] = serialize($user);
-    }
-    
     function saveUserId($id) {
         session_start();
         $_SESSION["USER_ID"] = $id;

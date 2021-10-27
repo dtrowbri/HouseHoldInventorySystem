@@ -18,7 +18,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.php">Home</a> 
           </li>
-          <?php if (!isset($_SESSION['USER'])): ?>
+          <?php if (!isset($_SESSION['USER_ID'])): ?>
           <li class="nav-item">
             <a class="nav-link" href="login.php">Login</a>
           </li>

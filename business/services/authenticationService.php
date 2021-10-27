@@ -1,7 +1,7 @@
 <?php
 
-//require_once '../../database/database.php';
-//require_once '../../database/authenticationdao.php';
+require_once 'database/database.php';
+require_once 'database/authenticationdao.php';
 
 class AuthenticationService{
     
@@ -11,12 +11,14 @@ class AuthenticationService{
         $this->database = new Database();
     }
     
-    function authenticate(?int $UserId, ?string $Password){
+    function authenticate(?string $Email, ?string $Password){
         $conn = $this->database->getConnection();
+        
         $dao = new AuthenticationDAO();
         
-        $Password = hash("sha512", $Password);
-        $isSuccessful = $dao->authenticate($UserId, $Password, $conn);
+        //$Password = hash("sha512", $Password);  hasing on the handler so actual password is never used anywhere.
+        $isSuccessful = $dao->authenticate($Email, $Password, $conn);
+        
         return $isSuccessful;
     }
 }
