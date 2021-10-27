@@ -1,7 +1,10 @@
 <?php
 require_once 'business/services/householdService.php';
 require_once 'session.php';
-
+if (!isset($_SESSION['USER_ID'])) {
+    header('Location: login.php');
+    exit;
+}
 if(isset($_POST['addHousehold'])) {
     $name = $_POST['name'];
     $address = $_POST['address'];

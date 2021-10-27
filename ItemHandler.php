@@ -2,7 +2,10 @@
 require_once 'business/services/inventoryService.php';
 require_once 'business/models/inventoryitem.php';
 require_once 'session.php';
-
+if (!isset($_SESSION['USER_ID'])) {
+    header('Location: login.php');
+    exit;
+}
 if(isset($_POST['addItem'])) {
     $name = $_POST['name'];
     $desc = $_POST['desc'];

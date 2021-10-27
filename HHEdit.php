@@ -3,7 +3,10 @@ session_start();
 require_once 'header.php';
 require_once 'business/services/householdService.php';
 require_once 'business/models/household.php';
-
+if (!isset($_SESSION['USER_ID'])) {
+    header('Location: login.php');
+    exit;
+}
 $HHID = $_POST['HHEdit'];
 
 $db = new HouseHoldService();

@@ -1,6 +1,10 @@
 <?php
 session_start();
 require_once 'header.php';
+if (!isset($_SESSION['USER_ID'])) {
+    header('Location: login.php');
+    exit;
+}
 ?>
 <div class="d-flex text-center bg-secondary">  
     <form class="form-login" action="ItemHandler.php" method="post">
