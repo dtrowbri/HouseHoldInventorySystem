@@ -10,7 +10,7 @@ if (!isset($_SESSION['USER_ID'])) {
 echo $message;
 if($_POST['inventory'] != null) { saveHHSelection($_POST['inventory']); }
 
-$db = new InventoryService();
+$db = new InventoryService(getDatabase());
 $results = $db->getHouseHoldInventoryItems(getHHSelection());
 
 include '_inventory.php';

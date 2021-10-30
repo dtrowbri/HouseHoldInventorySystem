@@ -13,7 +13,9 @@ if(isset($_POST['register'])) {
     //echo "inside UserHandler with register " . $email . " " . $password . " " . $firstname . " " . $lastname;
     $new_user = new User($email, $firstname, $lastname);
     $new_user->setPassword($password);
-    $db = new UserService();
+
+    $db = new UserService(getDatabase());
+
     $result = $db->AddUser($new_user);
     if($result) {
         $message = "<div class='alert-success'>Registration Successful.</div>";
@@ -26,12 +28,12 @@ if(isset($_POST['register'])) {
 
 if(isset($_POST['login'])) {
     //echo "<br>inside UserHandler with login " . $email . " " . $password;
-    $db = new AuthenticationService();
+    $db = new AuthenticationService(getDatabase());
 
     $result = $db->authenticate($email, $password);
 
     if($result) {
-        $db = new UserService();
+        $db = new UserService(getDatabase());
         $user_loggedin = $db->GetUser($email);
         saveUserId($user_loggedin->getId());
         saveUserName($user_loggedin->getFirstName(), $user_loggedin->getLastName());

@@ -14,7 +14,7 @@ if(isset($_POST['addItem'])) {
     $hhid = getHHSelection();
     //echo "inside ItemHandler with addItem " . $name . " " . $desc . " " . $quantity . " |" . $hhid . "<br>";
     
-    $db = new InventoryService();
+    $db = new InventoryService(getDatabase());
     $item = new InventoryItem($name, $desc, $quantity, $hhid);
     $success = $db->addInventoryItem($item);
     if($success) {
@@ -29,7 +29,7 @@ if(isset($_POST['addItem'])) {
 if(isset($_POST['ItemDel'])) {
     $input = $_POST['ItemDel'];
     //echo "inside ItemHandler with ItemDel";
-    $db = new InventoryService();
+    $db = new InventoryService(getDatabase());
     
     $success = $db->deleteInventoryItem($input);
     
@@ -48,7 +48,7 @@ if(isset($_POST['ItemEdit'])) {
     $desc = $_POST['desc'];
     $quantity = $_POST['quantity'];
     //echo "inside ItemHandler with ItemEdit";
-    $db = new InventoryService();
+    $db = new InventoryService(getDatabase());
     $item = new InventoryItem($name, $desc, $quantity, $hhid);
 
     $item->setId($input);

@@ -9,7 +9,7 @@ if (!isset($_SESSION['USER_ID'])) {
 }
 echo $message;
 
-$db = new HouseHoldService();
+$db = new HouseHoldService(getDatabase());
 $results = $db->getHouseHolds(getUserId());
 
 include '_households.php';

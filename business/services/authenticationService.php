@@ -1,5 +1,4 @@
 <?php
-
 require_once 'database/database.php';
 require_once 'database/authenticationdao.php';
 
@@ -7,8 +6,8 @@ class AuthenticationService{
     
     private $database;
     
-    function __construct(){
-        $this->database = new Database();
+    function __construct(?IDatabase $database){
+        $this->database = $database;
     }
     
     function authenticate(?string $Email, ?string $Password){

@@ -11,7 +11,7 @@ if(isset($_POST['addHousehold'])) {
     $address = $_POST['address'];
     //echo "inside HHHandler with addHousehold " . $name . " " . $address;
     
-    $db = new HouseHoldService();
+    $db = new HouseHoldService(getDatabase());
     $household = new HouseHold($name, $address, getUserId());
     $success = $db->addHouseHold($household);
     if($success) {
@@ -31,7 +31,7 @@ if(isset($_POST['HHEdit'])) {
     $household = new HouseHold($name, $address, getUserId());
     $household->setId($input);
     
-    $db = new HouseHoldService();
+    $db = new HouseHoldService(getDatabase());
     $success = $db->updateHouseHold($household);
     
     if($success) {
@@ -45,7 +45,7 @@ if(isset($_POST['HHEdit'])) {
 if(isset($_POST['HHDel'])) {
     $input = $_POST['HHDel'];
     //echo "inside HHHandler with HHDel" .$input ;
-    $db = new HouseHoldService();
+    $db = new HouseHoldService(getDatabase());
     
     $success = $db->deleteHouseHold($input);
     

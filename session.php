@@ -1,4 +1,5 @@
 <?php
+require_once 'database/database.php';
     function saveUserId($id) {
         session_start();
         $_SESSION["USER_ID"] = $id;
@@ -27,5 +28,9 @@
     function getHHSelection() {
         session_start();
         return $_SESSION["HHID"];
+    }
+    
+    function getDatabase() {
+        return new Database();
     }
 ?>

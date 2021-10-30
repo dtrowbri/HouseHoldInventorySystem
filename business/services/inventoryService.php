@@ -7,8 +7,8 @@ class InventoryService {
     
     private $database;
     
-    function __construct(){
-        $this->database = new Database();
+    function __construct(?IDatabase $database){
+        $this->database = $database;
     }
     
     function addInventoryItem(?InventoryItem $InventoryItem){
