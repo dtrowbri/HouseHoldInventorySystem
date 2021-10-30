@@ -2,6 +2,7 @@
 require_once 'business/services/inventoryService.php';
 require_once 'business/models/inventoryitem.php';
 require_once 'session.php';
+session_start();
 if (!isset($_SESSION['USER_ID'])) {
     header('Location: login.php');
     exit;
