@@ -20,7 +20,7 @@ class AuthenticationService{
     }
     
     function authenticate(?string $Email, ?string $Password){
-        $this->logger->debug("Entering method authenticate", ['session' => session_id(), 'class' => 'AuthenticationService', 'method' => 'authenticate']);
+        $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'AuthenticationService', 'method' => 'authenticate']);
         $this->logger->info("Authenticating user", ['session' => session_id(), 'user' => $Email, 'class' => 'AuthenticationService', 'method' => 'authenticate']);
         $conn = $this->database->getConnection();
         
@@ -29,7 +29,7 @@ class AuthenticationService{
         //$Password = hash("sha512", $Password);  hasing on the handler so actual password is never used anywhere.
         $isSuccessful = $dao->authenticate($Email, $Password, $conn);
         
-        $this->logger->debug("Exiting method authenticate", ['session' => session_id(), 'class' => 'AuthenticationService', 'method' => 'authenticate']);
+        $this->logger->debug("Exiting method", ['session' => session_id(), 'class' => 'AuthenticationService', 'method' => 'authenticate']);
         return $isSuccessful;
     }
 }
