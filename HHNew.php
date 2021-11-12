@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'header.php';
+require_once 'Autoloader.php';
 if (!isset($_SESSION['USER_ID'])) {
     header('Location: login.php');
     exit;

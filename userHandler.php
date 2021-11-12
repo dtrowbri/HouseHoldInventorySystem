@@ -3,6 +3,7 @@ require_once 'business/models/user.php';
 require_once 'business/services/userService.php';
 require_once 'business/services/authenticationService.php';
 require_once 'session.php';
+require_once 'Autoloader.php';
 
 $email = $_POST['email'];
 $password = hash("sha512", $_POST['password']);

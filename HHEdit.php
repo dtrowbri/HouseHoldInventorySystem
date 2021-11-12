@@ -4,6 +4,7 @@ require_once 'header.php';
 require_once 'business/services/householdService.php';
 require_once 'business/models/household.php';
 require_once 'session.php';
+require_once 'Autoloader.php';
 if (!isset($_SESSION['USER_ID'])) {
     header('Location: login.php');
     exit;
