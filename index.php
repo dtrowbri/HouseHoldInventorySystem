@@ -4,15 +4,6 @@ require_once 'header.php';
 require_once 'Autoloader.php';
 echo $message;
 
-require __DIR__ . '/vendor/autoload.php';
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
-$logger = new Logger('testlogger');
-
-$logger->pushHandler(new StreamHandler(__DIR__ . '/app.log', Logger::DEBUG));
-$logger->info("Welcome to the HouseHoldInventorySystem index page!",[null]);
-
 ?>
 	<div class="container">
 		<div class="row mt-3 text-center">
