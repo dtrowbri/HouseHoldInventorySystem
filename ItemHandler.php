@@ -32,11 +32,11 @@ if(isset($_POST['addItem'])) {
     if($success) {    
         $logger->debug("Inside login handler, add item success:", ['session' => session_id(), 'handler' => 'item', 'mode' => 'add',
         'name' => $name, 'description' => $desc, 'quantity' => $quantity, 'household id' => $hhid]);
-        $message = "<div class='alert-success'>Item successfully added.</div>";
+        $message = "<div class='alert alert-success'>Item successfully added.</div>";
     } else {
         $logger->error("Inside login handler, add item failure:", ['session' => session_id(), 'handler' => 'item', 'mode' => 'add',
             'name' => $name, 'description' => $desc, 'quantity' => $quantity, 'household id' => $hhid]);
-        $message = "<div class='alert-danger'>Item registration failed.</div>";
+        $message = "<div class='alert alert-danger'>Item registration failed.</div>";
     }
     include('inventory.php');
     
@@ -54,11 +54,11 @@ if(isset($_POST['ItemDel'])) {
     if($success) {
         $logger->debug("Inside login handler, delete item success:", ['session' => session_id(), 'handler' => 'item', 'mode' => 'delete',
             'input' => $input]);
-        $message = "<div class='alert-success'>Item successfully deleted.</div>";
+        $message = "<div class='alert alert-success'>Item successfully deleted.</div>";
     } else {
         $logger->error("Inside login handler, delete item failure:", ['session' => session_id(), 'handler' => 'item', 'mode' => 'delete',
             'input' => $input]);
-        $message = "<div class='alert-danger'>Item deletion failed.</div>";
+        $message = "<div class='alert alert-danger'>Item deletion failed.</div>";
     }
     include('inventory.php');
 }

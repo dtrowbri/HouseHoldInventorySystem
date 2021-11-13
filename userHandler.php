@@ -26,10 +26,10 @@ if(isset($_POST['register'])) {
     $result = $db->AddUser($new_user);
     if($result) {
         $logger->debug("Inside user handler, registration success:", ['session' => session_id(), 'handler' => 'user', 'mode' => 'registration', 'email' => $email, 'first name' => $firstname, 'last name' => $lastname]);
-        $message = "<div class='alert-success'>Registration Successful.</div>";
+        $message = "<div class='alert alert-success'>Registration Successful.</div>";
     } else {
         $logger->error("Inside user handler, registration failure:", ['session' => session_id(), 'handler' => 'user', 'mode' => 'registration', 'email' => $email, 'first name' => $firstname, 'last name' => $lastname]);
-        $message = "<div class='alert-danger'>Registration Failed.</div>";
+        $message = "<div class='alert alert-danger'>Registration Failed.</div>";
     }
     include('index.php');
     require_once 'footer.php'; 
@@ -48,10 +48,10 @@ if(isset($_POST['login'])) {
         saveUserName($user_loggedin->getFirstName(), $user_loggedin->getLastName());
         
         $logger->debug("User handler, login  success:", ['session' => session_id(), 'handler' => 'user', 'mode' => 'login', 'email' => $email]);
-        $message = "<div class='alert-success'>Login Successful. Welcome back ". getUserName()  ."!</div>";
+        $message = "<div class='alert alert-success'>Login Successful. Welcome back ". getUserName()  ."!</div>";
     } else {
         $logger->error("User handler, login  failed:", ['session' => session_id(), 'handler' => 'user', 'mode' => 'login', 'email' => $email]);
-        $message = "<div class='alert-danger'>Login Failed.</div>";
+        $message = "<div class='alert alert-danger'>Login Failed.</div>";
     }
     include('index.php');
 

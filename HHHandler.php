@@ -27,11 +27,11 @@ if(isset($_POST['addHousehold'])) {
     if($success) {
         $logger->debug("Inside household handler, add household success:", ['session' => session_id(), 'handler' => 'household', 'mode' => 'add',
         'name' => $name, 'address' => $address]);
-        $message = "<div class='alert-success'>Household successfully added.</div>";
+        $message = "<div class='alert alert-success'>Household successfully added.</div>";
     } else {
         $logger->error("Inside household handler, add household failure:", ['session' => session_id(), 'handler' => 'household', 'mode' => 'add',
             'name' => $name, 'address' => $address]);
-        $message = "<div class='alert-danger'>Household registration failed.</div>";
+        $message = "<div class='alert alert-danger'>Household registration failed.</div>";
     }
     include('households.php');
     
@@ -53,11 +53,11 @@ if(isset($_POST['HHEdit'])) {
     if($success) {
         $logger->debug("Inside household handler, edit household success:", ['session' => session_id(), 'handler' => 'household', 'mode' => 'edit',
             'input' => $input, 'name' => $name, 'address' => $address]);
-        $message = "<div class='alert-success'>Household successfully updated.</div>";
+        $message = "<div class='alert alert-success'>Household successfully updated.</div>";
     } else {
         $logger->error("Inside household handler, edit household failure:", ['session' => session_id(), 'handler' => 'household', 'mode' => 'edit',
             'input' => $input, 'name' => $name, 'address' => $address]);
-        $message = "<div class='alert-danger'>Household edit failed.</div>";
+        $message = "<div class='alert alert-danger'>Household edit failed.</div>";
     }
     include('households.php');
 }
@@ -73,11 +73,11 @@ if(isset($_POST['HHDel'])) {
     if($success) {
         $logger->debug("Inside household handler, delete household success:", ['session' => session_id(), 'handler' => 'household', 'mode' => 'delete',
             'input' => $input]);
-        $message = "<div class='alert-success'>Household successfully deleted.</div>";
+        $message = "<div class='alert alert-success'>Household successfully deleted.</div>";
     } else {
         $logger->error("Inside household handler, delete household failure:", ['session' => session_id(), 'handler' => 'household', 'mode' => 'delete',
             'input' => $input]);
-        $message = "<div class='alert-danger'>Household deletion failed.</div>";
+        $message = "<div class='alert alert-danger'>Household deletion failed.</div>";
     }
     include('households.php');
 }

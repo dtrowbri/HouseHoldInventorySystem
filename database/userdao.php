@@ -1,6 +1,5 @@
 <?php
-//require_once './database.php';
-//require_once '../business/models/user.php';
+require_once 'business/models/user.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;

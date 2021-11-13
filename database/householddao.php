@@ -1,6 +1,4 @@
 <?php
-
-//require_once './database.php';
 require_once 'business/models/household.php';
 
 use Monolog\Logger;

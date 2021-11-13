@@ -1,7 +1,4 @@
 <?php
-
-//require_once './database.php';
-
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
