@@ -2,38 +2,39 @@
 
 /**
  * HouseHold
- * object to encapsulate household information.
+ * Object to encapsulate household information.
  */
 class HouseHold{
         
     /**
      * Id
-     *
+     * Unique ID to for the household objects.
      * @var int
      */
     private $Id;    
     /**
      * Name
-     *
+     * Name of the household object.
      * @var string
      */
     private $Name;    
     /**
      * Address
-     *
+     * Address of the household object.
+     * Any format is acceptable.
      * @var string
      */
     private $Address;    
     /**
      * UserId
-     *
+     * Associated User Object ID for the household object.
      * @var int
      */
     private $UserId;
         
     /**
      * __construct
-     *
+     * Construct the household object.
      * @param  string $Name
      * @param  string $Address
      * @param  int $UserId
@@ -47,7 +48,7 @@ class HouseHold{
         
     /**
      * getId
-     *
+     * Return the household object's unique id.
      * @return int
      */
     function getId(){
@@ -56,7 +57,7 @@ class HouseHold{
         
     /**
      * setId
-     *
+     * Set the household object's id.
      * @param  int $Id
      * @return void
      */
@@ -66,7 +67,7 @@ class HouseHold{
         
     /**
      * getName
-     *
+     * Get the household object's name.
      * @return string
      */
     function getName(){
@@ -75,7 +76,7 @@ class HouseHold{
         
     /**
      * setName
-     *
+     * Set the household object's name.
      * @param  string $Name
      * @return void
      */
@@ -85,7 +86,7 @@ class HouseHold{
         
     /**
      * getAddress
-     *
+     * Get the household object's address.
      * @return string
      */
     function getAddress(){
@@ -94,7 +95,7 @@ class HouseHold{
         
     /**
      * setAddress
-     *
+     * Set the household object's address.
      * @param  string $Address
      * @return void
      */
@@ -104,7 +105,7 @@ class HouseHold{
         
     /**
      * getUserId
-     *
+     * Get the household object's assosciated User object ID
      * @return int
      */
     function getUserId(){
@@ -113,7 +114,7 @@ class HouseHold{
         
     /**
      * setUserId
-     *
+     * Set the household object's assosciated User object ID
      * @param  int $UserId
      * @return void
      */
