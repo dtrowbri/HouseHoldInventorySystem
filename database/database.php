@@ -18,28 +18,28 @@ class Database implements IDatabase {
      */
     private $logger = null;
     
-    private $dsn = 'mysql:dbname=householdinventory;host=127.0.0.1;port=3306';    
-    private $username = 'root';    
-    private $password = 'root';
+    //private $dsn = 'mysql:dbname=householdinventory;host=127.0.0.1;port=3306';    
+    //private $username = 'root';    
+    //private $password = 'root';
     
     /**
      * dsn
      * Connection string to be used within \PDO db connection
      * @var string
      */
-    //private $dsn = 'mysql:dbname=householdinventory;host=127.0.0.1;port=49406';
+    private $dsn = 'mysql:dbname=householdinventory;host=127.0.0.1;port=49406';
     /**
      * username
      * String to hold username needed for \PDO db connection.
      * @var string
      */
-    //private $username = 'azure';
+    private $username = 'azure';
     /**
      * password
      * String to hold password needed for \PDO db connection.
      * @var string
      */
-    //private $password = '6#vWHD_$';
+    private $password = '6#vWHD_$';
         
     /**
      * getConnection
