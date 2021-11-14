@@ -3,10 +3,26 @@ namespace cst323;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+/**
+ * AuthenticationDAO
+ * Data Access Object for authentication purposes.
+ * Used by the Authentication service.
+ * Communicates with database to verify provided email and password for login.
+ */
 class AuthenticationDAO {
     
+    /**
+     * logger
+     * Variable to hold logger instance.
+     * @var Logger
+     */
     private $logger = null;
-    
+        
+    /**
+     * __construct
+     * Create the authentication DAO
+     * @return void
+     */
     public function __construct(){
         $this->logger = new Logger('main');
         $this->logger->pushHandler( new StreamHandler(__DIR__. '/../app.log', Logger::DEBUG));
@@ -14,7 +30,15 @@ class AuthenticationDAO {
         $this->logger->info("Creating AuthenticationDAO", ['session' => session_id(), 'class' => 'AuthenticationDAO', 'method' => 'construct']);
         $this->logger->debug("Exiting constructor", ['session' => session_id(), 'class' => 'AuthenticationDAO', 'method' => 'construct']);
     }
-    
+        
+    /**
+     * authenticate
+     * Check with the DB if the provided strings match what is stored.
+     * @param  string $Email
+     * @param  string $Password
+     * @param  \PDO $conn
+     * @return bool
+     */
     function authenticate(?string $Email, ?string $Password, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'AuthenticationDAO', 'method' => 'authenticate']);
         $query = "select count(Email) as `count` from users where Email = ? and Password = ?";

@@ -5,10 +5,25 @@ require_once 'business/models/user.php';
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+/**
+ * UserDAO
+ * Data Access Object for user related purposes.
+ * Used by the user service.
+ */
 class UserDAO {
     
+    /**
+     * logger
+     * Variable to hold logger instance.
+     * @var Logger
+     */
     private $logger = null;
-    
+        
+    /**
+     * __construct
+     * construct the user DAO.
+     * @return void
+     */
     public function __construct(){
         $this->logger = new Logger('main');
         $this->logger->pushHandler( new StreamHandler(__DIR__. '/../app.log', Logger::DEBUG));
@@ -16,7 +31,14 @@ class UserDAO {
         $this->logger->info("Creating UserDAO", ['session' => session_id(), 'class' => 'UserDAO', 'method' => 'construct']);
         $this->logger->debug("Exiting constructor", ['session' => session_id(), 'class' => 'UserDAO', 'method' => 'construct']);
     }
-    
+        
+    /**
+     * addUser
+     * Add user object to the database.
+     * @param  User $user
+     * @param  \PDO $conn
+     * @return bool
+     */
     function addUser(?User $user, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'addUser']);
         $query = "insert into users (Id, Email, Password, FirstName, LastName) values (null, ?, ?, ?, ?)";
@@ -41,7 +63,14 @@ class UserDAO {
             return false;
         }
     }
-    
+        
+    /**
+     * getUser
+     * Return specific user object using provided unique email address.
+     * @param  string $email
+     * @param  \PDO $conn
+     * @return User
+     */
     function getUser(?string $email, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'getUser']);
         $query = "select Id, Email, FirstName, LastName from users where Email = ?";

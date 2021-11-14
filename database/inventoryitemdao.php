@@ -5,10 +5,25 @@ require_once 'business/models/inventoryitem.php';
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+/**
+ * InventoryItemDAO
+ * Data Access Object for inventory related purposes.
+ * Used by the inventory service.
+ */
 class InventoryItemDAO {
     
+    /**
+     * logger
+     * Variable to hold logger instance.
+     * @var Logger
+     */
     private $logger = null;
-    
+        
+    /**
+     * __construct
+     * Create the inventory dao.
+     * @return void
+     */
     public function __construct(){
         $this->logger = new Logger('main');
         $this->logger->pushHandler( new StreamHandler(__DIR__. '/../app.log', Logger::DEBUG));
@@ -16,7 +31,14 @@ class InventoryItemDAO {
         $this->logger->info("Creating InventoryItemDAO", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'construct']);
         $this->logger->debug("Exiting constructor", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'construct']);
     }
-    
+        
+    /**
+     * addInventoryItem
+     * Add inventory object to database for storage.
+     * @param  InventoryItem $InventoryItem
+     * @param  \PDO $conn
+     * @return bool
+     */
     function addInventoryItem(?InventoryItem $InventoryItem, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'addInventoryItem']);
         $query = "insert into inventory (Id, Name, Quantity, HouseHoldId, Description) values (null, ?,?,?,?)";
@@ -40,7 +62,14 @@ class InventoryItemDAO {
             return false;
         }
     }
-    
+        
+    /**
+     * deleteInventoryItem
+     * Delete inventory object from datbase using the inentory item id.
+     * @param  int $InventoryItemId
+     * @param  \PDO $conn
+     * @return bool
+     */
     function deleteInventoryItem(?int $InventoryItemId, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'deleteInventoryItem']);
         $query = "delete from inventory where Id = ?";
@@ -61,7 +90,14 @@ class InventoryItemDAO {
             return false;
         }
     }
-    
+        
+    /**
+     * updateInventoryItem
+     * Update existing inventory item information in DB using inventory item object.
+     * @param  InventoryItem $InventoryItem
+     * @param  \PDO $conn
+     * @return bool
+     */
     function updateInventoryItem(?InventoryItem $InventoryItem, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'updateInventoryItem']);
         $query = "update inventory set Name = ?, Quantity = ?, Description = ? where Id = ?";
@@ -85,7 +121,14 @@ class InventoryItemDAO {
             return false;
         }
     }
-    
+        
+    /**
+     * getInventoryItems
+     * Get all inventory items for provided/associated household using household id.
+     * @param  int $HouseHoldId
+     * @param  \PDO $conn
+     * @return array
+     */
     function getInventoryItems(?int $HouseHoldId, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'getInventoryItems']);
         $query = "select Id, Name, Quantity, HouseHoldId, Description from inventory where HouseHoldId = ?";
@@ -115,7 +158,14 @@ class InventoryItemDAO {
             return null;
         }
     }
-    
+        
+    /**
+     * getInventoryItem
+     * Get specific inventory item using provided inventory id.
+     * @param  int $ItemID
+     * @param  \PDO $conn
+     * @return InventoryItem
+     */
     function getInventoryItem(?int $ItemID, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'getInventoryItem']);
         $query = "select Id, Name, Quantity, HouseHoldId, Description from inventory where Id = ?";

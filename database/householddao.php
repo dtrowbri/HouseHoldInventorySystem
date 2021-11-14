@@ -5,10 +5,25 @@ require_once 'business/models/household.php';
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+/**
+ * HouseHoldDAO
+ * Data Access Object for household related purposes.
+ * Used by the household service.
+ */
 class HouseHoldDAO {
     
+    /**
+     * logger
+     * Variable to hold logger instance.
+     * @var Logger
+     */
     private $logger = null;
-    
+        
+    /**
+     * __construct
+     * create the household DAO.
+     * @return void
+     */
     public function __construct(){
         $this->logger = new Logger('main');
         $this->logger->pushHandler( new StreamHandler(__DIR__. '/../app.log', Logger::DEBUG));
@@ -16,7 +31,14 @@ class HouseHoldDAO {
         $this->logger->info("Creating HouseHoldDAO", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'construct']);
         $this->logger->debug("Exiting constructor", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'construct']);
     }
-    
+        
+    /**
+     * addHouseHold
+     * Store a household object into the database.
+     * @param  HouseHold $HouseHold
+     * @param  \PDO $conn
+     * @return bool
+     */
     function addHouseHold(?HouseHold $HouseHold, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'addHouseHold']);
         $query = "insert into households (Id, Name, Address, UserId) values (null, ?, ?, ?)";
@@ -40,7 +62,14 @@ class HouseHoldDAO {
             return false;
         }
     }
-    
+        
+    /**
+     * deleteHouseHold
+     * Delete a household object from the database using the household ID.
+     * @param  int $Id
+     * @param  \PDO $conn
+     * @return bool
+     */
     function deleteHouseHold(?int $Id, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'deleteHouseHold']);
         $query = "delete from households where Id = ?";
@@ -62,7 +91,14 @@ class HouseHoldDAO {
             return false;
         }
     }
-    
+        
+    /**
+     * getHouseHolds
+     * Return all households for a given user id.
+     * @param  int $UserId
+     * @param  \PDO $conn
+     * @return array
+     */
     function getHouseHolds(?int $UserId, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'getHouseHolds']);
         $query = "select Id, Name, Address, UserId from households where UserId = ?";
@@ -92,7 +128,14 @@ class HouseHoldDAO {
             return null;
         }
     }
-    
+        
+    /**
+     * getHouseHold
+     * Get specific household for provided household ID.
+     * @param  int $HHID
+     * @param  \PDO $conn
+     * @return HouseHold
+     */
     function getHouseHold(?int $HHID, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'getHouseHold']);
         $query = "select Id, Name, Address, UserId from households where Id = ?";
@@ -117,7 +160,14 @@ class HouseHoldDAO {
             return null;
         }
     }
-    
+        
+    /**
+     * updateHouseHold
+     * Update household information in database with provided household object.
+     * @param  HouseHold $HouseHold
+     * @param  \PDO $conn
+     * @return bool
+     */
     function updateHouseHold(?HouseHold $HouseHold, $conn){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'updateHouseHold']);
         $query = "update households set Name = ?, Address = ? where Id = ?";
