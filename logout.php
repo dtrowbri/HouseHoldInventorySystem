@@ -1,4 +1,5 @@
- <?php
+<?php
+namespace cst323;
 session_start();
 require_once 'Autoloader.php';
 require_once 'session.php';

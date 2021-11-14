@@ -1,4 +1,5 @@
 <?php
+namespace cst323;
 spl_autoload_register(function($class){
     require_once $class . '.php';
     require_once 'business/models/' . $class . '.php';

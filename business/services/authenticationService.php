@@ -1,4 +1,5 @@
 <?php
+namespace cst323;
 require_once 'database/database.php';
 require_once 'database/authenticationdao.php';
 
@@ -22,8 +23,8 @@ class AuthenticationService{
     function authenticate(?string $Email, ?string $Password){
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'AuthenticationService', 'method' => 'authenticate']);
         $this->logger->info("Authenticating user", ['session' => session_id(), 'user' => $Email, 'class' => 'AuthenticationService', 'method' => 'authenticate']);
+
         $conn = $this->database->getConnection();
-        
         $dao = new AuthenticationDAO();
         
         //$Password = hash("sha512", $Password);  hasing on the handler so actual password is never used anywhere.

@@ -1,4 +1,5 @@
 <?php
+namespace cst323;
 //echo "<pre>" . print_r($results, true) . "</pre>"; //for testing purposes.
 echo "
     <div class='container mt-3'>

@@ -1,4 +1,5 @@
 <?php
+namespace cst323;
 require_once 'business/models/user.php';
 
 use Monolog\Logger;
@@ -21,10 +22,10 @@ class UserDAO {
         $query = "insert into users (Id, Email, Password, FirstName, LastName) values (null, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
         
-        $stmt->bindValue(1, $user->getEmail(), PDO::PARAM_STR);
-        $stmt->bindValue(2, $user->getPassword(), PDO::PARAM_STR);
-        $stmt->bindValue(3, $user->getFirstName(), PDO::PARAM_STR);
-        $stmt->bindValue(4, $user->getLastName(), PDO::PARAM_STR);
+        $stmt->bindValue(1, $user->getEmail(), \PDO::PARAM_STR);
+        $stmt->bindValue(2, $user->getPassword(), \PDO::PARAM_STR);
+        $stmt->bindValue(3, $user->getFirstName(), \PDO::PARAM_STR);
+        $stmt->bindValue(4, $user->getLastName(), \PDO::PARAM_STR);
         
         try{
             $stmt->execute();
@@ -46,7 +47,7 @@ class UserDAO {
         $query = "select Id, Email, FirstName, LastName from users where Email = ?";
         $stmt = $conn->prepare($query);
         
-        $stmt->bindValue(1, $email, PDO::PARAM_STR);
+        $stmt->bindValue(1, $email, \PDO::PARAM_STR);
         
         try{
             $stmt->execute();

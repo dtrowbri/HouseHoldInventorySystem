@@ -1,3 +1,6 @@
+<?php 
+namespace cst323;
+?>
 </body>
 <footer class="text-center text-white fixed-bottom">
     <hr class="text-black-50" style="margin-bottom: 0em;">

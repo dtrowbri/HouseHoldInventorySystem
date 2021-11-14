@@ -1,4 +1,5 @@
 <?php
+namespace cst323;
 require_once 'business/models/user.php';
 require_once 'business/services/userService.php';
 require_once 'business/services/authenticationService.php';

@@ -1,4 +1,5 @@
 <?php
+namespace cst323;
 require_once 'database/database.php';
     function saveUserId($id) {
         session_start();
