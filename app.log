@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2021-11-14T21:27:16.783115+00:00] main.DEBUG: User handler, login: {"session":"","handler":"user","mode":"login","email":"Isaac"} []
 [2021-11-14T21:27:16.785492+00:00] main.DEBUG: Entering constructor {"session":"","class":"AuthenticationService","method":"construct"} []
 [2021-11-14T21:27:16.785818+00:00] main.INFO: Creating Authentication Service {"session":"","class":"AuthenticationService","method":"construct"} []
@@ -1370,3 +1371,5 @@
 [2021-11-18T00:38:42.354248+00:00] main.DEBUG: Exiting method {"session":"","class":"InventoryItemDAO","method":"getUser"} []
 [2021-11-18T00:38:42.354408+00:00] main.DEBUG: Exiting constructor {"session":"","class":"UserService","method":"GetUser"} []
 [2021-11-18T00:38:42.355750+00:00] main.DEBUG: User handler, login  success: {"session":"46697adf07ed4d1aba31546c5a155f03","handler":"user","mode":"login","email":"Isaac@me.com"} []
+=======
+>>>>>>> parent of e54d02a (adding namespace information)

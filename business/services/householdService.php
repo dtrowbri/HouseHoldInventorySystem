@@ -1,5 +1,4 @@
 <?php
-namespace cst323;
 require_once 'database/database.php';
 require_once 'business/models/household.php';
 require_once 'database/householddao.php';

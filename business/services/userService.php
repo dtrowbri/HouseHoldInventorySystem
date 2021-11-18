@@ -1,5 +1,4 @@
 <?php
-namespace cst323;
 require_once 'database/database.php';
 require_once 'business/models/user.php';
 require_once 'database/userdao.php';

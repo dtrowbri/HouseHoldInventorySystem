@@ -1,5 +1,4 @@
 <?php
-namespace cst323;
    
 /**
  * User

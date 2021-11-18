@@ -1,10 +1,10 @@
 <?php 
-namespace cst323;
 require_once 'business/interfaces/idatabase.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+<<<<<<< HEAD
 /**
  * Database
  * Implements the IDatabase interface which required the getConnection function.
@@ -27,6 +27,9 @@ class Database implements IDatabase {
      * Connection string to be used within \PDO db connection
      * @var string
      */
+=======
+class Database implements IDatabase {
+>>>>>>> parent of e54d02a (adding namespace information)
     private $dsn = 'mysql:dbname=householdinventory;host=127.0.0.1;port=49406';
     /**
      * username
@@ -40,12 +43,17 @@ class Database implements IDatabase {
      * @var string
      */
     private $password = '6#vWHD_$';
+<<<<<<< HEAD
         
     /**
      * getConnection
      * Function to establish connection to database.
      * @return \PDO
      */
+=======
+    private $logger = null;
+    
+>>>>>>> parent of e54d02a (adding namespace information)
     function getConnection(){
         $this->logger = new Logger('main');
         $this->logger->pushHandler( new StreamHandler(__DIR__. '/../app.log', Logger::DEBUG));
@@ -53,8 +61,7 @@ class Database implements IDatabase {
         $this->logger->info("Creating UserDAO", ['session' => session_id(), 'class' => 'Database', 'method' => 'construct']);
         
         $this->logger->info("Creating connection to database", ['session' => session_id(), 'class' => 'Database', 'method' => 'construct']);
-
-        $conn = new \PDO($this->dsn, $this->username, $this->password);
+        $conn = new PDO($this->dsn, $this->username, $this->password);
         
         if($conn){
             $this->logger->debug("Exiting constructor", ['session' => session_id(), 'class' => 'Database', 'method' => 'construct']);

@@ -1,9 +1,12 @@
 <?php
+<<<<<<< HEAD
 namespace cst323;
 /**
  * This is the user handler. This php files handles reigstration and login requests.
  * Passwords, once read from post, are immediately hashed; raw passwords are never used within the application.
  */
+=======
+>>>>>>> parent of e54d02a (adding namespace information)
 require_once 'business/models/user.php';
 require_once 'business/services/userService.php';
 require_once 'business/services/authenticationService.php';

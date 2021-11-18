@@ -1,5 +1,4 @@
 <?php
-namespace cst323;
 session_start();
 require_once 'header.php';
 if (!isset($_SESSION['USER_ID'])) {

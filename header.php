@@ -1,7 +1,4 @@
-<?php 
-namespace cst323; 
-require_once 'Autoloader.php'; 
-?>
+<?php require_once 'Autoloader.php'; ?>
 <html>
 <head>
   <title>Household Inventory Manager</title>

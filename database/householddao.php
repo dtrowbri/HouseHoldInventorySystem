@@ -1,5 +1,4 @@
 <?php
-namespace cst323;
 require_once 'business/models/household.php';
 
 use Monolog\Logger;
@@ -45,9 +44,9 @@ class HouseHoldDAO {
         $query = "insert into households (Id, Name, Address, UserId) values (null, ?, ?, ?)";
         $stmt = $conn->prepare($query);
         
-        $stmt->bindParam(1, $HouseHold->getName(), \PDO::PARAM_STR);
-        $stmt->bindParam(2, $HouseHold->getAddress(), \PDO::PARAM_STR);
-        $stmt->bindParam(3, $HouseHold->getUserId(), \PDO::PARAM_INT);
+        $stmt->bindParam(1, $HouseHold->getName(), PDO::PARAM_STR);
+        $stmt->bindParam(2, $HouseHold->getAddress(), PDO::PARAM_STR);
+        $stmt->bindParam(3, $HouseHold->getUserId(), PDO::PARAM_INT);
         
         try{
         $stmt->execute();
@@ -75,7 +74,7 @@ class HouseHoldDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'deleteHouseHold']);
         $query = "delete from households where Id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $Id, \PDO::PARAM_INT);
+        $stmt->bindParam(1, $Id, PDO::PARAM_INT);
         
         try{
             $stmt->execute();
@@ -104,7 +103,7 @@ class HouseHoldDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'getHouseHolds']);
         $query = "select Id, Name, Address, UserId from households where UserId = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $UserId, \PDO::PARAM_INT);
+        $stmt->bindParam(1, $UserId, PDO::PARAM_INT);
         
         try{
             $stmt->execute();
@@ -141,7 +140,7 @@ class HouseHoldDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'getHouseHold']);
         $query = "select Id, Name, Address, UserId from households where Id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $HHID, \PDO::PARAM_INT);
+        $stmt->bindParam(1, $HHID, PDO::PARAM_INT);
         
         try{
             $stmt->execute();
@@ -173,9 +172,9 @@ class HouseHoldDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'HouseHoldDAO', 'method' => 'updateHouseHold']);
         $query = "update households set Name = ?, Address = ? where Id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $HouseHold->getName(), \PDO::PARAM_STR);
-        $stmt->bindParam(2, $HouseHold->getAddress(), \PDO::PARAM_STR);
-        $stmt->bindParam(3, $HouseHold->getId(), \PDO::PARAM_INT);
+        $stmt->bindParam(1, $HouseHold->getName(), PDO::PARAM_STR);
+        $stmt->bindParam(2, $HouseHold->getAddress(), PDO::PARAM_STR);
+        $stmt->bindParam(3, $HouseHold->getId(), PDO::PARAM_INT);
         
         try{
             $stmt->execute();

@@ -1,5 +1,4 @@
 <?php
-namespace cst323;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Exception;
@@ -44,8 +43,8 @@ class AuthenticationDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'AuthenticationDAO', 'method' => 'authenticate']);
         $query = "select count(Email) as `count` from users where Email = ? and Password = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $Email, \PDO::PARAM_STR);
-        $stmt->bindParam(2, $Password, \PDO::PARAM_STR);
+        $stmt->bindParam(1, $Email, PDO::PARAM_STR);
+        $stmt->bindParam(2, $Password, PDO::PARAM_STR);
         
         try{
             $stmt->execute();

@@ -1,5 +1,4 @@
 <?php
-namespace cst323;
 session_start();
 require_once 'business/services/inventoryService.php';
 require_once 'business/models/inventoryitem.php';

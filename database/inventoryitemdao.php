@@ -1,5 +1,4 @@
 <?php
-namespace cst323;
 require_once 'business/models/inventoryitem.php';
 
 use Monolog\Logger;
@@ -44,10 +43,10 @@ class InventoryItemDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'addInventoryItem']);
         $query = "insert into inventory (Id, Name, Quantity, HouseHoldId, Description) values (null, ?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $InventoryItem->getName(), \PDO::PARAM_STR);
-        $stmt->bindParam(2, $InventoryItem->getQuantity(), \PDO::PARAM_INT);
-        $stmt->bindParam(3, $InventoryItem->getHouseHoldId(), \PDO::PARAM_INT);
-        $stmt->bindParam(4, $InventoryItem->getDescription(), \PDO::PARAM_STR);
+        $stmt->bindParam(1, $InventoryItem->getName(), PDO::PARAM_STR);
+        $stmt->bindParam(2, $InventoryItem->getQuantity(), PDO::PARAM_INT);
+        $stmt->bindParam(3, $InventoryItem->getHouseHoldId(), PDO::PARAM_INT);
+        $stmt->bindParam(4, $InventoryItem->getDescription(), PDO::PARAM_STR);
         
         try{
             $stmt->execute();
@@ -75,7 +74,7 @@ class InventoryItemDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'deleteInventoryItem']);
         $query = "delete from inventory where Id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $InventoryItemId, \PDO::PARAM_INT);
+        $stmt->bindParam(1, $InventoryItemId, PDO::PARAM_INT);
         
         try{
             $stmt->execute();
@@ -103,10 +102,10 @@ class InventoryItemDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'updateInventoryItem']);
         $query = "update inventory set Name = ?, Quantity = ?, Description = ? where Id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $InventoryItem->getName(), \PDO::PARAM_STR);
-        $stmt->bindParam(2, $InventoryItem->getQuantity(), \PDO::PARAM_INT);
-        $stmt->bindParam(3, $InventoryItem->getDescription(), \PDO::PARAM_STR);
-        $stmt->bindParam(4, $InventoryItem->getId(), \PDO::PARAM_INT);
+        $stmt->bindParam(1, $InventoryItem->getName(), PDO::PARAM_STR);
+        $stmt->bindParam(2, $InventoryItem->getQuantity(), PDO::PARAM_INT);
+        $stmt->bindParam(3, $InventoryItem->getDescription(), PDO::PARAM_STR);
+        $stmt->bindParam(4, $InventoryItem->getId(), PDO::PARAM_INT);
         
         try{
             $stmt->execute();
@@ -134,7 +133,7 @@ class InventoryItemDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'getInventoryItems']);
         $query = "select Id, Name, Quantity, HouseHoldId, Description from inventory where HouseHoldId = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $HouseHoldId, \PDO::PARAM_INT);
+        $stmt->bindParam(1, $HouseHoldId, PDO::PARAM_INT);
         
         try{
             $stmt->execute();
@@ -171,7 +170,7 @@ class InventoryItemDAO {
         $this->logger->debug("Entering method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'getInventoryItem']);
         $query = "select Id, Name, Quantity, HouseHoldId, Description from inventory where Id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $ItemID, \PDO::PARAM_INT);
+        $stmt->bindParam(1, $ItemID, PDO::PARAM_INT);
         
         try{
             $stmt->execute();
