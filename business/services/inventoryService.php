@@ -1,5 +1,5 @@
 <?php
-require_once 'database/database.php';
+require_once 'business/interfaces/idatabase.php';
 require_once 'database/inventoryitemdao.php';
 require_once 'business/models/inventoryitem.php';
 

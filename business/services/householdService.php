@@ -1,7 +1,7 @@
 <?php
-require_once 'database/database.php';
-require_once 'business/models/household.php';
+require_once 'business/interfaces/idatabase.php';
 require_once 'database/householddao.php';
+require_once 'business/models/household.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;

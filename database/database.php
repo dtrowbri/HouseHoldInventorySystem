@@ -4,11 +4,10 @@ require_once 'business/interfaces/idatabase.php';
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
-<<<<<<< HEAD
 /**
  * Database
  * Implements the IDatabase interface which required the getConnection function.
- * Returns a connection to a Database using the \PDO framework.
+ * Returns a connection to a Database using the PDO framework.
  */
 class Database implements IDatabase {    
     /**
@@ -24,36 +23,30 @@ class Database implements IDatabase {
     
     /**
      * dsn
-     * Connection string to be used within \PDO db connection
+     * Connection string to be used within PDO db connection
      * @var string
      */
-=======
-class Database implements IDatabase {
->>>>>>> parent of e54d02a (adding namespace information)
+
     private $dsn = 'mysql:dbname=householdinventory;host=127.0.0.1;port=49406';
     /**
      * username
-     * String to hold username needed for \PDO db connection.
+     * String to hold username needed for PDO db connection.
      * @var string
      */
     private $username = 'azure';
     /**
      * password
-     * String to hold password needed for \PDO db connection.
+     * String to hold password needed for PDO db connection.
      * @var string
      */
     private $password = '6#vWHD_$';
-<<<<<<< HEAD
         
     /**
      * getConnection
      * Function to establish connection to database.
-     * @return \PDO
+     * @return PDO
      */
-=======
-    private $logger = null;
     
->>>>>>> parent of e54d02a (adding namespace information)
     function getConnection(){
         $this->logger = new Logger('main');
         $this->logger->pushHandler( new StreamHandler(__DIR__. '/../app.log', Logger::DEBUG));

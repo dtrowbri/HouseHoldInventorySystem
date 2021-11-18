@@ -1,5 +1,4 @@
 <?php
-
 /**
  * IDatabase
  * Interface for the database connection objects.

@@ -1,6 +1,6 @@
 <?php
-require_once 'database/database.php';
 require_once 'database/authenticationdao.php';
+require_once 'business/interfaces/idatabase.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;

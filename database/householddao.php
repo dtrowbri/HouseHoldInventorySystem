@@ -36,7 +36,7 @@ class HouseHoldDAO {
      * addHouseHold
      * Store a household object into the database.
      * @param  HouseHold $HouseHold
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return bool
      */
     function addHouseHold(?HouseHold $HouseHold, $conn){
@@ -67,7 +67,7 @@ class HouseHoldDAO {
      * deleteHouseHold
      * Delete a household object from the database using the household ID.
      * @param  int $Id
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return bool
      */
     function deleteHouseHold(?int $Id, $conn){
@@ -96,7 +96,7 @@ class HouseHoldDAO {
      * getHouseHolds
      * Return all households for a given user id.
      * @param  int $UserId
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return array
      */
     function getHouseHolds(?int $UserId, $conn){
@@ -133,7 +133,7 @@ class HouseHoldDAO {
      * getHouseHold
      * Get specific household for provided household ID.
      * @param  int $HHID
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return HouseHold
      */
     function getHouseHold(?int $HHID, $conn){
@@ -165,7 +165,7 @@ class HouseHoldDAO {
      * updateHouseHold
      * Update household information in database with provided household object.
      * @param  HouseHold $HouseHold
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return bool
      */
     function updateHouseHold(?HouseHold $HouseHold, $conn){

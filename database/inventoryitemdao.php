@@ -36,7 +36,7 @@ class InventoryItemDAO {
      * addInventoryItem
      * Add inventory object to database for storage.
      * @param  InventoryItem $InventoryItem
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return bool
      */
     function addInventoryItem(?InventoryItem $InventoryItem, $conn){
@@ -67,7 +67,7 @@ class InventoryItemDAO {
      * deleteInventoryItem
      * Delete inventory object from datbase using the inentory item id.
      * @param  int $InventoryItemId
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return bool
      */
     function deleteInventoryItem(?int $InventoryItemId, $conn){
@@ -95,7 +95,7 @@ class InventoryItemDAO {
      * updateInventoryItem
      * Update existing inventory item information in DB using inventory item object.
      * @param  InventoryItem $InventoryItem
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return bool
      */
     function updateInventoryItem(?InventoryItem $InventoryItem, $conn){
@@ -126,7 +126,7 @@ class InventoryItemDAO {
      * getInventoryItems
      * Get all inventory items for provided/associated household using household id.
      * @param  int $HouseHoldId
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return array
      */
     function getInventoryItems(?int $HouseHoldId, $conn){
@@ -163,7 +163,7 @@ class InventoryItemDAO {
      * getInventoryItem
      * Get specific inventory item using provided inventory id.
      * @param  int $ItemID
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return InventoryItem
      */
     function getInventoryItem(?int $ItemID, $conn){

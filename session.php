@@ -1,16 +1,11 @@
 <?php
-<<<<<<< HEAD
-namespace cst323;
-require_once 'database/database.php';    
+require_once 'database/database.php';
     /**
      * saveUserId
      * Save user's ID to session.
      * @param  int $id
      * @return void
      */
-=======
-require_once 'database/database.php';
->>>>>>> parent of e54d02a (adding namespace information)
     function saveUserId($id) {
         session_start();
         $_SESSION["USER_ID"] = $id;

@@ -36,7 +36,7 @@ class AuthenticationDAO {
      * Check with the DB if the provided strings match what is stored.
      * @param  string $Email
      * @param  string $Password
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return bool
      */
     function authenticate(?string $Email, ?string $Password, $conn){

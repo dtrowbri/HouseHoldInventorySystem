@@ -3,7 +3,6 @@ require_once 'business/models/user.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-use Exception;
 
 /**
  * UserDAO
@@ -36,7 +35,7 @@ class UserDAO {
      * addUser
      * Add user object to the database.
      * @param  User $user
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return bool
      */
     function addUser(?User $user, $conn){
@@ -68,7 +67,7 @@ class UserDAO {
      * getUser
      * Return specific user object using provided unique email address.
      * @param  string $email
-     * @param  \PDO $conn
+     * @param  PDO $conn
      * @return User
      */
     function getUser(?string $email, $conn){
