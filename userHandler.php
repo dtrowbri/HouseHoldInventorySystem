@@ -16,7 +16,8 @@ $email = $_POST['email'];
 $password = hash("sha512", $_POST['password']);
 
 $logger = new Logger('main');
-$logger->pushHandler(new StreamHandler(__DIR__ . '/app.log', Logger::DEBUG));
+#$logger->pushHandler(new StreamHandler(__DIR__ . '/app.log', Logger::DEBUG));
+$logger->pushHandler(new StreamHandler( './app.log', Logger::DEBUG));
 
 if(isset($_POST['register'])) {
     $firstname = $_POST['first_name'];
