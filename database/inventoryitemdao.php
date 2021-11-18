@@ -3,7 +3,6 @@ require_once 'business/models/inventoryitem.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-use Exception;
 
 /**
  * InventoryItemDAO
@@ -18,7 +17,7 @@ class InventoryItemDAO {
      * @var Logger
      */
     private $logger = null;
-        
+    
     /**
      * __construct
      * Create the inventory dao.
@@ -31,7 +30,7 @@ class InventoryItemDAO {
         $this->logger->info("Creating InventoryItemDAO", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'construct']);
         $this->logger->debug("Exiting constructor", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'construct']);
     }
-        
+    
     /**
      * addInventoryItem
      * Add inventory object to database for storage.
@@ -62,7 +61,7 @@ class InventoryItemDAO {
             return false;
         }
     }
-        
+    
     /**
      * deleteInventoryItem
      * Delete inventory object from datbase using the inentory item id.
@@ -79,7 +78,7 @@ class InventoryItemDAO {
         try{
             $stmt->execute();
         } catch(Exception $e){
-            $this->logger->error("Error: There was an error executing the query delete an inventory item", ['session' => session_id(), 'InventoryId' => $InventoryItemId, 'class' => 'InventoryItemDAO', 'method' => 'deleteInventoryItem']);   
+            $this->logger->error("Error: There was an error executing the query delete an inventory item", ['session' => session_id(), 'InventoryId' => $InventoryItemId, 'class' => 'InventoryItemDAO', 'method' => 'deleteInventoryItem']);
         }
         
         if($stmt->rowCount() == 1){
@@ -90,7 +89,7 @@ class InventoryItemDAO {
             return false;
         }
     }
-        
+    
     /**
      * updateInventoryItem
      * Update existing inventory item information in DB using inventory item object.
@@ -110,7 +109,7 @@ class InventoryItemDAO {
         try{
             $stmt->execute();
         } catch(Exception $e){
-            $this->logger->error("Error: There was an error executing the query to update an inventory item", ['session' => session_id(), 'InventoryItemId' => $InventoryItem->getId(), 'class' => 'InventoryItemDAO', 'method' => 'updateInventoryItem']);    
+            $this->logger->error("Error: There was an error executing the query to update an inventory item", ['session' => session_id(), 'InventoryItemId' => $InventoryItem->getId(), 'class' => 'InventoryItemDAO', 'method' => 'updateInventoryItem']);
         }
         
         if($stmt->rowCount() == 1){
@@ -121,7 +120,7 @@ class InventoryItemDAO {
             return false;
         }
     }
-        
+    
     /**
      * getInventoryItems
      * Get all inventory items for provided/associated household using household id.
@@ -138,7 +137,7 @@ class InventoryItemDAO {
         try{
             $stmt->execute();
         } catch(Exception $e){
-            $this->logger->error("There was an error executing the query to retrieve the list of inventory items for a household", ['session' => session_id(), 'HouseHoldId' => $HouseHoldId, 'class' => 'InventoryItemDAO', 'method' => 'getInventoryItems']);    
+            $this->logger->error("There was an error executing the query to retrieve the list of inventory items for a household", ['session' => session_id(), 'HouseHoldId' => $HouseHoldId, 'class' => 'InventoryItemDAO', 'method' => 'getInventoryItems']);
         }
         
         if($stmt->rowCount() > 0){
@@ -158,7 +157,7 @@ class InventoryItemDAO {
             return null;
         }
     }
-        
+    
     /**
      * getInventoryItem
      * Get specific inventory item using provided inventory id.
@@ -175,14 +174,14 @@ class InventoryItemDAO {
         try{
             $stmt->execute();
         } catch(Exception $e){
-            $this->logger-error("Error: There was an error executing the query to retrieve and inventory item", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'ItemId' => $ItemID, 'method' => 'getInventoryItem']);   
+            $this->logger-error("Error: There was an error executing the query to retrieve and inventory item", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'ItemId' => $ItemID, 'method' => 'getInventoryItem']);
         }
         
         if($stmt->rowCount() > 0){
             $result = $stmt->fetchAll();
             $InventoryItem = new InventoryItem($result[0]['Name'], $result[0]['Description'], $result[0]['Quantity'], $result[0]['HouseHoldId']);
             $InventoryItem->setId($result[0]['Id']);
-
+            
             $this->logger->debug("Exiting method", ['session' => session_id(), 'class' => 'InventoryItemDAO', 'method' => 'getInventoryItem']);
             return $InventoryItem;
         } else {
@@ -190,5 +189,5 @@ class InventoryItemDAO {
             return null;
         }
     }
-} 
+}
 ?>

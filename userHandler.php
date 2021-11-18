@@ -24,9 +24,9 @@ if(isset($_POST['register'])) {
     $logger->debug("Entering user handler, registration:", ['session' => session_id(), 'handler' => 'user', 'mode' => 'registration', 'email' => $email, 'first name' => $firstname, 'last name' => $lastname]);
     $new_user = new User($email, $firstname, $lastname);
     $new_user->setPassword($password);
-
+    
     $db = new UserService(getDatabase());
-
+    
     $result = $db->AddUser($new_user);
     if($result) {
         $logger->debug("Inside user handler, registration success:", ['session' => session_id(), 'handler' => 'user', 'mode' => 'registration', 'email' => $email, 'first name' => $firstname, 'last name' => $lastname]);
@@ -36,14 +36,14 @@ if(isset($_POST['register'])) {
         $message = "<div class='alert alert-danger'>Registration Failed.</div>";
     }
     include('index.php');
-    require_once 'footer.php'; 
+    require_once 'footer.php';
 }
 
 if(isset($_POST['login'])) {
     $logger->debug("User handler, login:", ['session' => session_id(), 'handler' => 'user', 'mode' => 'login', 'email' => $email]);
     $db = new AuthenticationService(getDatabase());
     $result = $db->authenticate($email, $password);
-
+    
     if($result) {
         $db = new UserService(getDatabase());
         $user_loggedin = $db->GetUser($email);
@@ -57,8 +57,8 @@ if(isset($_POST['login'])) {
         $message = "<div class='alert alert-danger'>Login Failed.</div>";
     }
     include('index.php');
-
-    require_once 'footer.php'; 
+    
+    require_once 'footer.php';
 }
 
 ?>

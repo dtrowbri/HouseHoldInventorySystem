@@ -3,7 +3,6 @@ require_once 'business/models/household.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-use Exception;
 
 /**
  * HouseHoldDAO

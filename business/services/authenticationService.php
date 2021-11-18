@@ -1,7 +1,6 @@
 <?php
 require_once 'database/authenticationdao.php';
 require_once 'business/interfaces/idatabase.php';
-
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
@@ -10,23 +9,23 @@ use Monolog\Handler\StreamHandler;
  * Service to handle authentication (login validation) requests
  */
 class AuthenticationService{
-        
+    
     /**
      * database
      * Variable to hold database instance.
      * @var IDatabase
      */
-    private $database;    
+    private $database;
     /**
      * logger
      * Variable to hold logger instance.
      * @var Logger
      */
     private $logger = null;
-        
+    
     /**
      * __construct
-     * Construct the authentication service. 
+     * Construct the authentication service.
      * @param  IDatabase $database
      * @return void
      */
@@ -38,7 +37,7 @@ class AuthenticationService{
         $this->database = $database;
         $this->logger->debug("Exiting constructor", ['session' => session_id(), 'class' => 'AuthenticationService', 'method' => 'construct']);
     }
-        
+    
     /**
      * authenticate
      * Function to compare provided email and hashed password to DB for authentication purposes.

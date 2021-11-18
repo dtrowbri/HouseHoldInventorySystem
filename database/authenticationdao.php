@@ -1,7 +1,6 @@
 <?php
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-use Exception;
 
 /**
  * AuthenticationDAO
