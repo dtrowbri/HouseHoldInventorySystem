@@ -4,6 +4,7 @@ require_once 'business/models/inventoryitem.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Exception;
 
 /**
  * InventoryItemDAO

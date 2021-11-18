@@ -4,6 +4,7 @@ require_once 'business/models/user.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Exception;
 
 /**
  * UserDAO
